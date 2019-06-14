@@ -1,3 +1,60 @@
 <resources>
     <string name="app_name">IReciteWord</string>
+    <string name="translate_hint">请输入要翻译的单词或句子</string>
+    <string name="translate_title">翻译结果</string>
+    <string name="tranks_youdao">本服务由有道翻译提供</string>
+    <string name="login_user">请输入用户名</string>
+    <string name="login_pwd">请输入密码</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="review_promt">还剩%ld个单词没有复习！！！</string>
+    <string name="review_exit">退出复习并保存进度</string>
+    <string name="review_more">再来一轮</string>
+    <string name="iv_launch">launch background</string>
+    <string name="iv_logo">main logo</string>
+    <string name="iv_nmet">nmet button</string>
+    <string name="iv_cet4">cet4 button</string>
+    <string name="iv_cet6">cet6 button</string>
+    <string name="iv_ietsl">ietsl button</string>
+    <string name="iv_gre">gre button</string>
+    <string name="iv_category">category image</string>
+    <string name="no_data">没有查到数据</string>
+    <string name="nmet">全国高考英语词汇</string>
+    <string name="cet4">大学英语四级词汇</string>
+    <string name="cet6">大学英语六级词汇</string>
+    <string name="ietsl">雅思词汇</string>
+    <string name="gre">美国研究生入学考试词汇</string>
+    <string name="unit">Unit</string>
+    <string name="iv_word">word list image</string>
+    <string name="iv_trans">image_trans</string>
+    <string name="btn_previous">previous button</string>
+    <string name="tv_back">后退</string>
+    <string name="tv_play">播放</string>
+    <string name="tv_pause">停止</string>
+    <string name="tv_next">前进</string>
+    <string name="setting_speak">自动发音</string>
+    <string name="setting_speed">播放速度</string>
+    <string name="select_speed">选择速度</string>
+    <string name="search">search</string>
+    <string name="first_page">已经第一页</string>
+    <string name="last_page">到达最后一页</string>
+    <string name="search_hint">请输入要查询的单词</string>
+    <string name="sum_time">累计阅读：</string>
+    <string-array name="speed_type">
+        <item>极快</item>
+        <item>稍快</item>
+        <item>普通</item>
+        <item>稍慢</item>
+        <item>极慢</item>
+    </string-array>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="exit_hint">再按一次退出程序</string>
+    <string name="toast_too_fast">当前播放速度过快, 无法自动发音, 请调慢速度</string>
+    <string name="toast_connect">请检查是否连接网络</string>
+    <string name="exit_commit">确认</string>
+    <string name="exit_quit">取消</string>
+    <string name="introduce_app">简介：采用了MVC架构，整合各个流行的框架：Retofit ，MPAndroidChart，butterknife，BaseRecyclerViewAdapterHelper，软件使用中的问题请给我们发邮件：1179315470@qq.com，祝您使用愉快</string>
+    <string name="git_addr">https://github.com/WJLGH/IReciteWord</string>
 </resources>

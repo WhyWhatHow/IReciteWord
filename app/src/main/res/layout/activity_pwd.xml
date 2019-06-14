@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PwdActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_o_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="原密码"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/et_o_pwd_e"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_o_pwd"
+            android:gravity="right"
+            android:text="TextView"
+            android:textColor="@color/holo_red_dark"
+                android:visibility="invisible"
+            android:textSize="14sp" />
+        <!--android:visibility="invisible"-->
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_n_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="新密码"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/et_n_pwd_e"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_n_pwd"
+            android:gravity="right"
+            android:text="TextView"
+            android:textColor="@color/holo_red_dark"
+                android:visibility="invisible"
+            android:textSize="14sp" />
+        <!--android:visibility="invisible"-->
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/et_r_pwd"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="重复新密码"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/et_r_pwd_e"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/et_r_pwd"
+            android:gravity="right"
+            android:text="TextView"
+            android:textColor="@color/holo_red_dark"
+            android:visibility="invisible"
+            android:textSize="14sp" />
+        <!--android:visibility="invisible"-->
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/btn_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimaryDark"
+        android:text="提交" />
+</LinearLayout>

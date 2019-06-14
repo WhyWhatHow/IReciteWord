@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+
+        >
+
+        <EditText
+            android:id="@+id/et_src"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left|top"
+            android:hint="@string/translate_hint"
+            android:inputType="textMultiLine"
+            android:minLines="4"
+            android:singleLine="false"
+            android:textSize="24sp"
+
+            />
+
+        <Button
+            android:layout_marginHorizontal="3dp"
+            android:id="@+id/btn_search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="#FF6633"
+            android:gravity="center"
+            android:text="@string/translate_title"
+            android:textAllCaps="false"
+            android:textSize="20sp" />
+
+        <TextView
+            android:layout_marginHorizontal="3dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/tv_tgt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:inputType="textMultiLine"
+            android:minLines="8"
+            android:textSize="24sp"
+            android:hint="翻译结果"/>
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="34dp"
+        android:gravity="center"
+        android:text="@string/tranks_youdao" />
+</RelativeLayout>

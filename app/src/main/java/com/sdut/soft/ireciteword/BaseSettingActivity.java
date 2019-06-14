@@ -1,0 +1,112 @@
+package com.sdut.soft.ireciteword;
+
+import android.content.DialogInterface;
+import android.support.v7.app.AlertDialog;
+import android.support.v7.app.AppCompatActivity;
+import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
+
+import com.chad.library.adapter.base.BaseQuickAdapter;
+import com.sdut.soft.ireciteword.adapter.MetaOptionAdapter;
+import com.sdut.soft.ireciteword.bean.MetaOption;
+import com.sdut.soft.ireciteword.bean.User;
+import com.sdut.soft.ireciteword.user.UserService;
+import com.sdut.soft.ireciteword.utils.Const;
+import com.sdut.soft.ireciteword.utils.SettingsUtils;
+
+import java.util.Arrays;
+import java.util.List;
+
+import butterknife.BindView;
+import butterknife.ButterKnife;
+import butterknife.OnClick;
+
+public class BaseSettingActivity extends AppCompatActivity {
+    private static final String TAG = "BaseSettingActivity";
+
+    @BindView(R.id.rg_meta)
+    RadioGroup rgMeta;
+
+    @BindView(R.id.rb_CET4)
+    RadioButton rdCET4;
+
+    @BindView(R.id.rb_CET6)
+    RadioButton rbCET6;
+
+    @BindView(R.id.rb_GRE)
+    RadioButton rbGRE;
+
+    @BindView(R.id.rb_IETSL)
+    RadioButton rbIETSL;
+    @BindView(R.id.et_perday)
+    EditText etPerday;
+
+    String meta = Const.DEFAULT_META;
+    Integer perDay = Const.PER_DAY;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_base_setting);
+        ButterKnife.bind(this);
+        initView();
+    }
+
+    @OnClick(R.id.btn_save)
+    public void save() {
+        new AlertDialog.Builder(BaseSettingActivity.this)
+                .setTitle("配置")
+                .setIcon(R.mipmap.ic_launcher)
+                .setMessage("是否保存配置？")
+                .setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        finish();
+                    }
+                })
+                .setPositiveButton("确认", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        perDay = Integer.parseInt(etPerday.getText().toString());
+
+                        SettingsUtils.setMeta(BaseSettingActivity.this,meta);
+                        UserService userService = new UserService(BaseSettingActivity.this);
+                        User user = userService.currentUser();
+                        user.setPerday(perDay);
+                        userService.commitProgress(user);
+                        finish();
+                    }
+                })
+                .create()
+                .show();
+    }
+    private void initView() {
+
+        rgMeta.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                switch (checkedId) {
+                    case R.id.rb_CET4:
+                        meta = Const.CET4_META;
+                        break;
+                    case R.id.rb_CET6:
+                        meta = Const.CET6_META;
+                        break;
+                    case R.id.rb_GRE:
+                        meta = Const.GRE_META;
+                        break;
+                    case R.id.rb_IETSL:
+                        meta = Const.IETSL_META;
+                        break;
+                }
+            }
+        });
+    }
+
+}
