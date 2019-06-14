@@ -117,7 +117,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onStop() {
         super.onStop();
-        //saveReciteWord();
+        saveReciteWord();
     }
 
     private void saveReciteWord() {
