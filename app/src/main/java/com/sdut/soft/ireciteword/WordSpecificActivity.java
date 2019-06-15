@@ -11,6 +11,7 @@ import android.os.Bundle;
 import com.sdut.soft.ireciteword.bean.Word;
 import com.sdut.soft.ireciteword.dao.WordDao;
 import com.sdut.soft.ireciteword.fragment.DetailFgt;
+import com.sdut.soft.ireciteword.utils.Const;
 import com.sdut.soft.ireciteword.utils.SettingsUtils;
 import com.sdut.soft.ireciteword.utils.YouDaoAudioUriUtils;
 
@@ -34,7 +35,7 @@ public class WordSpecificActivity extends AppCompatActivity implements DetailFgt
     private void addDetailFgt() {
         Intent intent = getIntent();
         int id = intent.getIntExtra("id", 1);
-        Word w = wordDao.getWordById(SettingsUtils.getMeta(this),id);
+        Word w = wordDao.getWordById(Const.DEFAULT_META,id);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
         detailFgt = DetailFgt.newInstance(w);
