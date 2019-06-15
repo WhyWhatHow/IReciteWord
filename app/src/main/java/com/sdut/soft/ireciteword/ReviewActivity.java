@@ -14,6 +14,7 @@ import com.sdut.soft.ireciteword.bean.Word;
 import com.sdut.soft.ireciteword.reviewWord.WordOptions;
 import com.sdut.soft.ireciteword.reviewWord.WordReciteService;
 import com.sdut.soft.ireciteword.user.UserService;
+import com.sdut.soft.ireciteword.utils.Const;
 
 import java.util.Arrays;
 import java.util.List;
@@ -65,6 +66,7 @@ public class ReviewActivity extends AppCompatActivity{
                     .setNegativeButton(R.string.review_more, new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
+                            save();
                             initView();
                             dialog.dismiss();
                         }
@@ -85,8 +87,9 @@ public class ReviewActivity extends AppCompatActivity{
     public void save() {
         UserService userService = new UserService(ReviewActivity.this);
         User user = userService.currentUser();
-        user.setRvindex(user.getRcindex());
+        user.setRvindex(user.getRvindex()+user.getPerday());
         userService.commitProgress(user);
+        setResult(Const.REVIEW_FLAG);
         ReviewActivity.this.finish();
     }
     @OnClick(value = {R.id.btn_c0, R.id.btn_c1, R.id.btn_c2, R.id.btn_c3})

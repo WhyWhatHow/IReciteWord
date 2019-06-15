@@ -89,6 +89,7 @@ public class SettingsFragment extends Fragment {
                                 userService.removeUser();
                                 dialog.dismiss();
                                 getActivity().finish();
+                                return;
                             }
                         })
                         .setNegativeButton(R.string.exit_quit, new DialogInterface.OnClickListener() {

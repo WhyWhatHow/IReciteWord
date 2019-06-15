@@ -116,6 +116,7 @@ public class PermissionsUtils {
                             Intent intent = new Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS, packageURI);
                             context.startActivity(intent);
                             context.finish();
+                            return;
                         }
                     })
                     .setNegativeButton("取消", new DialogInterface.OnClickListener() {

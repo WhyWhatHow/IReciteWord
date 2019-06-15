@@ -47,7 +47,7 @@ public class UserDao {
         values.put("password",u.getPassword());
         values.put("rcindex",u.getRcindex());
         values.put("rvindex",u.getRvindex());
-        values.put("perday",u.getPassword());
+        values.put("perday",u.getPerday());
         db.update("user", values, " id = ?", new String[]{String.valueOf(u.getId())});
         db.close();
     }

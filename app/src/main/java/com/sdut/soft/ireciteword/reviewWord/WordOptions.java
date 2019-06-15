@@ -29,7 +29,7 @@ public class WordOptions {
     }
 
     public String wordMark() {
-        return Math.random() > 0.5 ? target.getPhono():target.getTrans();
+        return Math.random() > 0.5 ? target.getTrans():String.format("[%s]",target.getPhono());
     }
 
     public List<Word> getOptions() {

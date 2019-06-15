@@ -23,6 +23,7 @@ import com.sdut.soft.ireciteword.ReviewActivity;
 import com.sdut.soft.ireciteword.bean.User;
 import com.sdut.soft.ireciteword.dao.WordDao;
 import com.sdut.soft.ireciteword.user.UserService;
+import com.sdut.soft.ireciteword.utils.Const;
 import com.sdut.soft.ireciteword.utils.SettingsUtils;
 
 import java.util.ArrayList;
@@ -66,7 +67,7 @@ public class ReciteFragment extends android.support.v4.app.Fragment {
                 intent = new Intent(getActivity(), DetailActivity.class);
                 break;
         }
-        startActivity(intent);
+        startActivityForResult(intent,1);
     }
     @Override
     public void onResume() {
@@ -83,6 +84,13 @@ public class ReciteFragment extends android.support.v4.app.Fragment {
         showPieChart(pieChart);
     }
 
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if(resultCode == Const.RECITE_FLAG || resultCode == Const.REVIEW_FLAG) {
+            initView();
+        }
+    }
 
     private void showPieChart(PieChart pieChart) {
         WordDao wordDao = new WordDao(getContext());

@@ -11,6 +11,8 @@ public class Const {
     public static final String CET6_META = "RM_CET6";
     public static final String GRE_META = "RM_GRE";
     public static final String IETSL_META = "RM_IETSL";
+    public static final int RECITE_FLAG = 233;
+    public static final int REVIEW_FLAG = 777;
     public static String PLAY_SPEED = "play_speed";
     public static String AUTO_SPEAK = "auto_speak";
     public static String DB_NAME = "words.db";

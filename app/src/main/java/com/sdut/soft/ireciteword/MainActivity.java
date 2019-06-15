@@ -77,6 +77,7 @@ public class MainActivity extends AppCompatActivity {
             public void forbitPermissons() {
                 Toast.makeText(MainActivity.this, "本应用必须获得相应权限才能启动，请设置!", Toast.LENGTH_LONG).show();
                 finish();
+                return ;
             }
         };
         //请求应用权限
