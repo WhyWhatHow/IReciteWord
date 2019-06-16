@@ -1,5 +1,7 @@
 package com.sdut.soft.ireciteword.bean;
 
+import com.sdut.soft.ireciteword.utils.Const;
+
 public class User {
     Integer id;
     String name;
@@ -63,6 +65,9 @@ public class User {
     }
 
     public Integer getPerday() {
+        if(perday <=0) {
+            return Const.PER_DAY;
+        }
         return perday;
     }
 

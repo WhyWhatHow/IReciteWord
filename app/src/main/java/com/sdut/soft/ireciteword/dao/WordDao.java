@@ -3,6 +3,7 @@ package com.sdut.soft.ireciteword.dao;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.util.Log;
 
 import com.sdut.soft.ireciteword.bean.User;
 import com.sdut.soft.ireciteword.bean.Word;
@@ -24,7 +25,7 @@ public class WordDao {
     public int getTotalCnt(String meta) {
         String sql = null;
         SQLiteDatabase db = mDBOpenHelper.getDatabase();
-        sql = " select count(*) from " + Const.DEFAULT_META;
+        sql = " select count(*) from " + meta;
         Cursor cursor = db.rawQuery(sql, null);
         int count = 0;
         if (cursor.moveToNext()) {

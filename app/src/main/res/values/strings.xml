@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">IReciteWord</string>
+    <string name="app_name">爱背单词</string>
     <string name="translate_hint">请输入要翻译的单词或句子</string>
     <string name="translate_title">翻译结果</string>
     <string name="tranks_youdao">本服务由有道翻译提供</string>
@@ -7,7 +7,7 @@
     <string name="login_pwd">请输入密码</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="review_promt">还剩%ld个单词没有复习！！！</string>
+    <string name="review_promt">还剩%d个单词没有复习！！！</string>
     <string name="review_exit">退出复习并保存进度</string>
     <string name="review_more">再来一轮</string>
     <string name="iv_launch">launch background</string>

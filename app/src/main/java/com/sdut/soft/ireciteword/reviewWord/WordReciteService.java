@@ -28,6 +28,9 @@ public class WordReciteService {
         eList = new ArrayList<>();
         User user = new UserService(context).currentUser();
         List<Word> words = new WordDao(context).getReviewWords(meta, user);
+        if(words == null) {
+            return;
+        }
         for (Word word : words) {
             eList.add(new WordOptions(context, meta, word));
         }

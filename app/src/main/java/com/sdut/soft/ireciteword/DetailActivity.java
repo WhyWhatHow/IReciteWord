@@ -3,6 +3,7 @@ package com.sdut.soft.ireciteword;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
@@ -60,6 +61,9 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         initData();
+        if(mWordList == null) {
+            return;
+        }
         initViews();
         initPlayer();
         setTitle((mWordKey + 1) + "/" + mWordList.size());
@@ -76,6 +80,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         mWordList = wordDao.getNewWords(mMetaKey, userService.currentUser());
         if (mWordList == null || mWordList.size() == 0) {
             finish();
+            return;
         }
         //设置定时回调函数
         mPlayHandler = new PlayHandler(this);
@@ -117,7 +122,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
     @Override
     protected void onStop() {
         super.onStop();
-        //saveReciteWord();
+        saveReciteWord();
     }
 
     private void saveReciteWord() {
@@ -127,6 +132,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         if (mIsPlaying) {
             mTimer.cancel();
         }
+        setResult(Const.RECITE_FLAG,null);
     }
 
     private void initViews() {
@@ -138,6 +144,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         tvPlay.setOnClickListener(this);
         findViewById(R.id.btn_prev).setOnClickListener(this);
         findViewById(R.id.btn_next).setOnClickListener(this);
+
         mViewPager = (ViewPager) findViewById(R.id.viewpager);
         mWordPagerAdapter = new WordPagerAdapter(getSupportFragmentManager(), mWordList);
         mViewPager.setAdapter(mWordPagerAdapter);
@@ -294,12 +301,12 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         }
     }
 
-    @Override
+ /*   @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_setting, menu);
         menu.findItem(R.id.menu_item_speak).setChecked(mIsAutoSpeak);
         return true;
-    }
+    }*/
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
@@ -307,11 +314,13 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
             pause();
         }
         switch (item.getItemId()) {
-            case R.id.home: {
+            //这里必须是android.R.id.home
+            // 不能是 R.id.home
+            case android.R.id.home: {
                 finish();
+                return true;
             }
-            break;
-            case R.id.menu_item_speak: {
+           /* case R.id.menu_item_speak: {
                 SharedPreferences.Editor editor = mSharedPreferences.edit();
                 if (item.isChecked()) {
                     item.setChecked(false);
@@ -340,7 +349,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
                                     }
                                 }).show();
             }
-            break;
+            break;*/
         }
         return true;
     }

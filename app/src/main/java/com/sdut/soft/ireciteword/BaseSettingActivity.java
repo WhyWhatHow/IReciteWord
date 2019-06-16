@@ -73,8 +73,10 @@ public class BaseSettingActivity extends AppCompatActivity {
                 .setPositiveButton("确认", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        perDay = Integer.parseInt(etPerday.getText().toString());
-
+                        if (!checkPerday()) {
+                            finish();
+                            return;
+                        }
                         SettingsUtils.setMeta(BaseSettingActivity.this,meta);
                         UserService userService = new UserService(BaseSettingActivity.this);
                         User user = userService.currentUser();
@@ -86,6 +88,20 @@ public class BaseSettingActivity extends AppCompatActivity {
                 .create()
                 .show();
     }
+
+    private boolean checkPerday() {
+        String str = etPerday.getText().toString();
+        if (str == null || "".equals(str)) {
+            return  false;
+        }
+        int t = Integer.parseInt(str);
+        if (t <= 0) {
+            return false;
+        }
+        perDay = t;
+        return true;
+    }
+
     private void initView() {
 
         rgMeta.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
