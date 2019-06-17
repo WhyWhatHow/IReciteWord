@@ -24,6 +24,7 @@
             android:layout_height="wrap_content"
             android:gravity="left|top"
             android:hint="@string/login_pwd"
+
             />
         <Button
             android:layout_marginTop="10dp"

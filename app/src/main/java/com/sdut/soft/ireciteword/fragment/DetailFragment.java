@@ -17,14 +17,14 @@ import com.sdut.soft.ireciteword.utils.Const;
 
 
 
-public class DetailFgt extends Fragment {
+public class DetailFragment extends Fragment {
     private onSpeechListener mOnSpeechListener;
     private ImageView mImageView;
 
-    public static DetailFgt newInstance(Word word) {
+    public static DetailFragment newInstance(Word word) {
         Bundle bundle = new Bundle();
         bundle.putParcelable(Const.WORD_KEY, word);
-        DetailFgt detailFgt = new DetailFgt();
+        DetailFragment detailFgt = new DetailFragment();
         detailFgt.setArguments(bundle);
         return detailFgt;
     }

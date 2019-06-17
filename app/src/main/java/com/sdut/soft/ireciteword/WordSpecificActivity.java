@@ -10,16 +10,15 @@ import android.os.Bundle;
 
 import com.sdut.soft.ireciteword.bean.Word;
 import com.sdut.soft.ireciteword.dao.WordDao;
-import com.sdut.soft.ireciteword.fragment.DetailFgt;
+import com.sdut.soft.ireciteword.fragment.DetailFragment;
 import com.sdut.soft.ireciteword.utils.Const;
-import com.sdut.soft.ireciteword.utils.SettingsUtils;
 import com.sdut.soft.ireciteword.utils.YouDaoAudioUriUtils;
 
 import java.io.IOException;
 
-public class WordSpecificActivity extends AppCompatActivity implements DetailFgt.onSpeechListener{
+public class WordSpecificActivity extends AppCompatActivity implements DetailFragment.onSpeechListener{
 
-    DetailFgt detailFgt;
+    DetailFragment detailFgt;
     WordDao wordDao;
     private MediaPlayer mMediaPlayer;
 
@@ -38,7 +37,7 @@ public class WordSpecificActivity extends AppCompatActivity implements DetailFgt
         Word w = wordDao.getWordById(Const.DEFAULT_META,id);
         FragmentManager fragmentManager = getSupportFragmentManager();
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        detailFgt = DetailFgt.newInstance(w);
+        detailFgt = DetailFragment.newInstance(w);
         transaction.add(R.id.detail_container, detailFgt);
         transaction.commit();
     }
@@ -64,7 +63,7 @@ public class WordSpecificActivity extends AppCompatActivity implements DetailFgt
         mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
-                DetailFgt item = detailFgt;
+                DetailFragment item = detailFgt;
                 item.setSpeakImg(R.mipmap.icon_speaker_on);
                 mMediaPlayer.start();
             }
@@ -79,7 +78,7 @@ public class WordSpecificActivity extends AppCompatActivity implements DetailFgt
         mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                DetailFgt item = detailFgt;
+                DetailFragment item = detailFgt;
                 item.setSpeakImg(R.mipmap.icon_speaker_off);
             }
         });

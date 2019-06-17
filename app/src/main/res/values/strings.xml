@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name">爱背单词</string>
+    <string name="password">*</string>
     <string name="translate_hint">请输入要翻译的单词或句子</string>
     <string name="translate_title">翻译结果</string>
     <string name="tranks_youdao">本服务由有道翻译提供</string>
@@ -48,6 +49,7 @@
         <item>极慢</item>
     </string-array>
 
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="exit_hint">再按一次退出程序</string>
@@ -55,6 +57,18 @@
     <string name="toast_connect">请检查是否连接网络</string>
     <string name="exit_commit">确认</string>
     <string name="exit_quit">取消</string>
-    <string name="introduce_app">简介：采用了MVC架构，整合各个流行的框架：Retofit ，MPAndroidChart，butterknife，BaseRecyclerViewAdapterHelper，软件使用中的问题请给我们发邮件：1179315470@qq.com，祝您使用愉快</string>
-    <string name="git_addr">https://github.com/WJLGH/IReciteWord</string>
+    <string name="introduce_app">软件使用中的问题请给我们发邮件：，祝您使用愉快</string>
+    <string name="git_addr">   </string>
+    <string name="title_activity_login">Sign in</string>
+    <string name="prompt_email">Email</string>
+    <string name="prompt_password">Password</string>
+    <string name="action_sign_in">Sign in or register</string>
+    <string name="action_sign_in_short">Sign in</string>
+    <string name="welcome">"Welcome !"</string>
+    <string name="invalid_username">Not a valid username</string>
+    <string name="invalid_password">Password must be >5 characters</string>
+    <string name="login_failed">"Login failed"</string>
+    <string name="str_w_email">王京龙:1179315470@qq.com</string>
+    <string name="str_x_email">邢鹏飞:1246389103@qq.com</string>
+    <string name="str_author">作者：</string>
 </resources>

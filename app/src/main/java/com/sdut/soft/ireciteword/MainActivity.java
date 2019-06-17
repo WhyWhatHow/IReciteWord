@@ -1,13 +1,11 @@
 package com.sdut.soft.ireciteword;
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.media.MediaPlayer;
+import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.EditText;
@@ -18,10 +16,6 @@ import com.sdut.soft.ireciteword.user.UserService;
 import com.sdut.soft.ireciteword.utils.Const;
 import com.sdut.soft.ireciteword.utils.DBFileUtils;
 import com.sdut.soft.ireciteword.utils.PermissionsUtils;
-import com.sdut.soft.ireciteword.utils.SettingsUtils;
-import com.sdut.soft.ireciteword.utils.YouDaoAudioUriUtils;
-
-import java.io.IOException;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -53,7 +47,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
         initAPP();
-
         initView();
     }
 
@@ -77,7 +70,7 @@ public class MainActivity extends AppCompatActivity {
             public void forbitPermissons() {
                 Toast.makeText(MainActivity.this, "本应用必须获得相应权限才能启动，请设置!", Toast.LENGTH_LONG).show();
                 finish();
-                return ;
+                return;
             }
         };
         //请求应用权限
