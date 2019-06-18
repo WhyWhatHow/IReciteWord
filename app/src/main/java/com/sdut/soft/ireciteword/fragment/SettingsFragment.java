@@ -1,12 +1,8 @@
 package com.sdut.soft.ireciteword.fragment;
 
-import android.annotation.SuppressLint;
 import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
@@ -20,14 +16,13 @@ import android.widget.TextView;
 
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.sdut.soft.ireciteword.BaseSettingActivity;
-import com.sdut.soft.ireciteword.InfoActivity;
+import com.sdut.soft.ireciteword.AboutActivity;
 import com.sdut.soft.ireciteword.PwdActivity;
 import com.sdut.soft.ireciteword.R;
 import com.sdut.soft.ireciteword.adapter.SettingOptionAdapter;
 import com.sdut.soft.ireciteword.bean.SettingOption;
 import com.sdut.soft.ireciteword.bean.User;
 import com.sdut.soft.ireciteword.user.UserService;
-import com.sdut.soft.ireciteword.utils.SettingsUtils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -35,7 +30,6 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
-import butterknife.Unbinder;
 
 
 /**
@@ -56,7 +50,7 @@ public class SettingsFragment extends Fragment {
     SettingOptionAdapter adapter;
     UserService userService;
     List<String > options = Arrays.asList("基本设置","修改密码","软件信息");
-    List<Class<? extends AppCompatActivity>> tgtClz = Arrays.asList(BaseSettingActivity.class,PwdActivity.class,InfoActivity.class);
+    List<Class<? extends AppCompatActivity>> tgtClz = Arrays.asList(BaseSettingActivity.class,PwdActivity.class, AboutActivity.class);
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

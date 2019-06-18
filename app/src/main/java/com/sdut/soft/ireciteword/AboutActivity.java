@@ -3,7 +3,7 @@ package com.sdut.soft.ireciteword;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class InfoActivity extends AppCompatActivity {
+public class AboutActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
