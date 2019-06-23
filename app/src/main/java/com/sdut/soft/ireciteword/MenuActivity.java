@@ -8,7 +8,6 @@ import android.os.Bundle;
 
 import com.sdut.soft.ireciteword.adapter.FragmentAdapter;
 import com.sdut.soft.ireciteword.fragment.ReciteFragment;
-import com.sdut.soft.ireciteword.fragment.ReviewFragment;
 import com.sdut.soft.ireciteword.fragment.SearchFragment;
 import com.sdut.soft.ireciteword.fragment.SettingsFragment;
 import com.sdut.soft.ireciteword.fragment.TranslateFragment;

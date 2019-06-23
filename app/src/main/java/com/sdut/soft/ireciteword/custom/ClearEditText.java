@@ -19,7 +19,7 @@ import com.sdut.soft.ireciteword.R;
 import java.util.jar.Attributes;
 
 /**
- * Created by Cheng Bao on 2015/6/17.
+ * 自定义的带删除按钮的输入框
  */
 public class ClearEditText extends android.support.v7.widget.AppCompatEditText implements View.OnFocusChangeListener,TextWatcher {
     /**

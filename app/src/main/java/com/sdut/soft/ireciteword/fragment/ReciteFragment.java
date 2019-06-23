@@ -1,5 +1,10 @@
 package com.sdut.soft.ireciteword.fragment;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
@@ -18,6 +23,7 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
 import com.sdut.soft.ireciteword.DetailActivity;
+import com.sdut.soft.ireciteword.MainActivity;
 import com.sdut.soft.ireciteword.R;
 import com.sdut.soft.ireciteword.ReviewActivity;
 import com.sdut.soft.ireciteword.bean.User;
@@ -33,13 +39,13 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+import static android.content.Context.NOTIFICATION_SERVICE;
+
 public class ReciteFragment extends android.support.v4.app.Fragment {
     private static final String TAG = "ReciteFragment";
     UserService userService;
     @BindView(R.id.pie_chart)
     PieChart pieChart;
-    @BindView(R.id.tv_last)
-    TextView tvLast;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -76,11 +82,6 @@ public class ReciteFragment extends android.support.v4.app.Fragment {
     }
 
     private void initView() {
-
-        User user = userService.currentUser();
-        tvLast.setText(
-                String.format("还剩%s个单词没有复习！！！"
-                        ,String.valueOf(user.getRcindex()-user.getRvindex())));
         showPieChart(pieChart);
     }
 
@@ -88,8 +89,36 @@ public class ReciteFragment extends android.support.v4.app.Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(resultCode == Const.RECITE_FLAG || resultCode == Const.REVIEW_FLAG) {
+            User user = userService.currentUser();
+            notifyUnReviewWord(String.format("还剩%s个单词没有复习！！！"
+                    ,String.valueOf(user.getRcindex()-user.getRvindex())));
             initView();
         }
+    }
+
+    private void notifyUnReviewWord(String showStr) {
+        NotificationManager notificationManager = (NotificationManager) getContext().getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
+        NotificationChannel mChannel = null;
+        Notification notification = null;
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
+            mChannel = new NotificationChannel("my_channel_01", "测试", NotificationManager.IMPORTANCE_HIGH);
+            notificationManager.createNotificationChannel(mChannel);
+            notification = new Notification.Builder(getContext().getApplicationContext(), "my_channel_01")
+                    .setContentTitle("提示")
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setContentText(showStr)
+                    .setAutoCancel(true)
+                    .build();
+        } else {
+            notification = new Notification.Builder(getContext().getApplicationContext())
+                    .setContentTitle("提示")
+                    .setSmallIcon(R.mipmap.ic_launcher)
+                    .setContentText(showStr)
+                    .setAutoCancel(true)
+                    .build();
+        }
+        notificationManager.notify(111,notification);
+
     }
 
     private void showPieChart(PieChart pieChart) {
