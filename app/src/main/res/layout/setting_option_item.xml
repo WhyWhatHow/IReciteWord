@@ -9,6 +9,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
+        android:background="@drawable/shap_btn_normal"
         android:text="退出"
         android:textSize="28sp" />
 

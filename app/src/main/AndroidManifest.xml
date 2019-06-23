@@ -54,7 +54,6 @@
         android:theme="@style/Theme.ZhiHu" />
 
         <activity android:name=".AboutActivity"
-        android:label="About us"
         android:theme="@style/Theme.Other"
         />
 

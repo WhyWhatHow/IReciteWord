@@ -23,6 +23,10 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
+/**
+ *  Review demo
+ *
+ */
 public class ReviewActivity extends AppCompatActivity{
     List<Integer> list = Arrays.asList(R.id.btn_c0, R.id.btn_c1, R.id.btn_c2, R.id.btn_c3);
     @BindView(R.id.tv_hint)

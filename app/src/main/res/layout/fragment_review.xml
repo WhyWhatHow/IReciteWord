@@ -3,7 +3,9 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    style="@style/base_linearLayout"
+    >
 
     <TextView
         android:id="@+id/tv_last"
@@ -25,9 +27,9 @@
 
     <Button
         android:id="@+id/btn_review"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        style="@style/base_btn"
         android:layout_marginBottom="260dp"
+       android:background="@drawable/shap_btn_normal"
         android:text="开始复习"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

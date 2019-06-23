@@ -11,6 +11,7 @@ import android.webkit.WebViewClient;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.sdut.soft.ireciteword.activity.base.BaseActivity;
 import com.sdut.soft.ireciteword.bean.User;
 import com.sdut.soft.ireciteword.user.UserService;
 import com.sdut.soft.ireciteword.utils.Const;
@@ -21,7 +22,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends BaseActivity {
     private static final String TAG = "MainActivity";
     String[] permissions = new String[]{
             Manifest.permission.INTERNET,
