@@ -7,7 +7,7 @@ import android.util.SparseArray;
 import android.view.ViewGroup;
 
 import com.sdut.soft.ireciteword.bean.Word;
-import com.sdut.soft.ireciteword.fragment.DetailFgt;
+import com.sdut.soft.ireciteword.fragment.DetailFragment;
 
 import java.util.List;
 
@@ -25,7 +25,7 @@ public class WordPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        DetailFgt detailFgt = DetailFgt.newInstance(mWordList.get(position));
+        DetailFragment detailFgt = DetailFragment.newInstance(mWordList.get(position));
         mFragments.put(position, detailFgt);
         return detailFgt;
     }

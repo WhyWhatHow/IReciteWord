@@ -1,9 +1,6 @@
 package com.sdut.soft.ireciteword;
 
-import android.app.AlertDialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.drawable.Drawable;
 import android.media.AudioManager;
@@ -14,7 +11,6 @@ import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.TextView;
@@ -24,7 +20,7 @@ import com.sdut.soft.ireciteword.adapter.WordPagerAdapter;
 import com.sdut.soft.ireciteword.bean.User;
 import com.sdut.soft.ireciteword.bean.Word;
 import com.sdut.soft.ireciteword.dao.WordDao;
-import com.sdut.soft.ireciteword.fragment.DetailFgt;
+import com.sdut.soft.ireciteword.fragment.DetailFragment;
 import com.sdut.soft.ireciteword.user.UserService;
 import com.sdut.soft.ireciteword.utils.Const;
 import com.sdut.soft.ireciteword.utils.SettingsUtils;
@@ -39,7 +35,7 @@ import java.util.TimerTask;
 
 
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener,
-        ViewPager.OnPageChangeListener, DetailFgt.onSpeechListener {
+        ViewPager.OnPageChangeListener, DetailFragment.onSpeechListener {
     private static final int MSG_REFRESH = 0x1;
     private int mLevel = 0;// 2, 1, 0, -1, -2分别代表极慢、稍慢、普通、稍快、极快。
     private List<Word> mWordList;
@@ -93,7 +89,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         mMediaPlayer.setOnPreparedListener(new MediaPlayer.OnPreparedListener() {
             @Override
             public void onPrepared(MediaPlayer mp) {
-                DetailFgt item = (DetailFgt) mWordPagerAdapter.getFragment(mWordKey);
+                DetailFragment item = (DetailFragment) mWordPagerAdapter.getFragment(mWordKey);
                 item.setSpeakImg(R.mipmap.icon_speaker_on);
                 mMediaPlayer.start();
             }
@@ -108,7 +104,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         mMediaPlayer.setOnCompletionListener(new MediaPlayer.OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                DetailFgt item = (DetailFgt) mWordPagerAdapter.getFragment(mWordKey);
+                DetailFragment item = (DetailFragment) mWordPagerAdapter.getFragment(mWordKey);
                 item.setSpeakImg(R.mipmap.icon_speaker_off);
             }
         });

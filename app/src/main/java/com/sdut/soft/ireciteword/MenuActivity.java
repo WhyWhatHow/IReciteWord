@@ -23,19 +23,21 @@ public class MenuActivity extends AppCompatActivity {
     TabLayout mTabLayout ;
     @BindView(R.id.viewpager)
     ViewPager mViewPager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         ButterKnife.bind(this);
+
         initViewPager();
     }
     private void initViewPager() {
         List<String> titles = new ArrayList<>();
-        titles.add("查单词");
-        titles.add("背单词");
-        titles.add("翻译句子");
-        titles.add("设置");
+        titles.add("词典");
+        titles.add("学习");
+        titles.add("翻译");
+        titles.add("工具");
         List<Fragment> fragments = new ArrayList<>();
         for (String title : titles) {
             mTabLayout.addTab(mTabLayout.newTab().setText(title));

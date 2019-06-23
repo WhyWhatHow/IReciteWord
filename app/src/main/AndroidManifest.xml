@@ -18,6 +18,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme.NoActionBar"
         android:usesCleartextTraffic="true">
+
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -25,15 +26,39 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity android:name=".MenuActivity" />
+
         <activity android:name=".ReviewActivity" />
+
         <activity
             android:name=".DetailActivity"
             android:theme="@style/AppTheme" />
+
         <activity android:name=".BaseSettingActivity" />
+
         <activity android:name=".PwdActivity" />
-        <activity android:name=".InfoActivity" />
-        <activity android:name=".WordSpecificActivity"></activity>
+
+
+        <activity android:name=".WordSpecificActivity" />
+        <!--TODO add BaseActitvity to fix  the screen-->
+        <activity
+            android:name=".activity.toolbar.ToolBarActivity"
+            android:label="@string/tool_bar" />
+
+        <activity android:name=".activity.toolbar.ToolDemoActivity" />
+
+        <activity
+        android:name=".activity.toolbar.ZhiHuActivity"
+        android:label="@string/zhi_hu"
+        android:theme="@style/Theme.ZhiHu" />
+
+        <activity android:name=".AboutActivity"
+        android:theme="@style/Theme.Other"
+        />
+
+
+
     </application>
 
 </manifest>

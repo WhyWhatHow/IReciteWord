@@ -29,14 +29,10 @@
         <Button
             android:layout_marginHorizontal="3dp"
             android:id="@+id/btn_search"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="#FF6633"
-            android:gravity="center"
+           style="@style/base_btn"
+            android:background="@drawable/shap_btn_normal_orange"
             android:text="@string/translate_title"
-            android:textAllCaps="false"
-            android:textSize="20sp" />
+            />
 
         <TextView
             android:layout_marginHorizontal="3dp"
