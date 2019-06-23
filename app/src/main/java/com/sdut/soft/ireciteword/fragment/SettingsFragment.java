@@ -17,6 +17,7 @@ import android.widget.TextView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.sdut.soft.ireciteword.BaseSettingActivity;
 import com.sdut.soft.ireciteword.AboutActivity;
+import com.sdut.soft.ireciteword.MenuActivity;
 import com.sdut.soft.ireciteword.PwdActivity;
 import com.sdut.soft.ireciteword.R;
 import com.sdut.soft.ireciteword.activity.toolbar.ZhiHuActivity;
@@ -50,13 +51,14 @@ public class SettingsFragment extends Fragment {
     RecyclerView recyclerView;
     SettingOptionAdapter adapter;
     UserService userService;
-    List<String > options = Arrays.asList("基本设置","修改密码","软件信息","Zhihu");
-    // todo change aboutActivity -> zhihuActivity (project Problem)
-    // TODO use for add some settings here .
+    List<String > options = Arrays.asList("基本设置","修改密码","软件信息","zhihu");
+
+
     List<Class<? extends AppCompatActivity>> tgtClz = Arrays.asList(BaseSettingActivity.class,PwdActivity.class, AboutActivity.class,ZhiHuActivity.class);
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
 //
     @Override
@@ -64,6 +66,8 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
         ButterKnife.bind(this,view);
+        MenuActivity activity = (MenuActivity)getActivity();
+        activity.mTvTitle.setText("Tools");
         initView();
         return view;
     }
