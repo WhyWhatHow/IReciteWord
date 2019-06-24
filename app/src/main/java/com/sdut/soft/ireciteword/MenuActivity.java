@@ -28,15 +28,13 @@ public class MenuActivity extends AppCompatActivity {
     TabLayout mTabLayout ;
     @BindView(R.id.viewpager)
     ViewPager mViewPager;
-    @BindView(R.id.tv_tb_title)
-    public TextView mTvTitle;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         ButterKnife.bind(this);
-        setToolBar();
+//        setToolBar();
         initViewPager();
     }
     private void initViewPager() {
@@ -65,55 +63,5 @@ public class MenuActivity extends AppCompatActivity {
         //给TabLayout设置适配器
         mTabLayout.setTabsFromPagerAdapter(mFragmentAdapter);
     }
-
-    /**
-     * TODO 添加 toolbar 重新布局 测试一
-     *  设置toolbar
-     */
-    private void setToolBar() {
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_menu);
-
-        toolbar.setNavigationIcon(R.mipmap.ic_drawer_home);
-        toolbar.setTitle("");
-        mTvTitle.setText("首页");
-        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
-
-        toolbar.inflateMenu(R.menu.zhihu_toolbar_menu); // 关联 mmenu 菜单
-        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
-            @Override
-            public boolean onMenuItemClick(MenuItem item) {
-                int menuItemId = item.getItemId();
-                if (menuItemId == R.id.action_search) {
-                    // TODO  跳转到 search 界面
-                    // Toast.makeText(ToolBarActivity.this, R.string.menu_search, Toast.LENGTH_SHORT).show();
-
-                } else if (menuItemId == R.id.action_settings) {
-                    //  TODO  goto Settings
-                    // Toast.makeText(ToolBarActivity.this, R.string.item_01, Toast.LENGTH_SHORT).show();
-                    gotoBaseSettings();
-                } else if (menuItemId == R.id.action_about) {
-                    // TODO  goto About Activity
-                    //  Toast.makeText(ToolBarActivity.this, R.string.item_02, Toast.LENGTH_SHORT).show();
-                    gotoAbout();
-                }
-                return true;
-            }
-        });
-    }
-
-    /**
-     *  页面跳转， 前往 About页面
-     */
-    public void gotoAbout() {
-        Intent intent;
-        intent = new Intent(this, AboutActivity.class);
-        startActivity(intent);
-    }
-    public void gotoBaseSettings() {
-        Intent intent;
-        intent = new Intent(this, BaseSettingActivity.class);
-        startActivity(intent);
-    }
-
 
 }

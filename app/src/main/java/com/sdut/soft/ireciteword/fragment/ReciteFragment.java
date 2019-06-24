@@ -8,8 +8,10 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -22,8 +24,11 @@ import com.github.mikephil.charting.data.PieData;
 import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.data.PieEntry;
 import com.github.mikephil.charting.formatter.PercentFormatter;
+import com.sdut.soft.ireciteword.AboutActivity;
+import com.sdut.soft.ireciteword.BaseSettingActivity;
 import com.sdut.soft.ireciteword.DetailActivity;
 import com.sdut.soft.ireciteword.MainActivity;
+import com.sdut.soft.ireciteword.MenuActivity;
 import com.sdut.soft.ireciteword.R;
 import com.sdut.soft.ireciteword.ReviewActivity;
 import com.sdut.soft.ireciteword.bean.User;
@@ -46,24 +51,34 @@ public class ReciteFragment extends android.support.v4.app.Fragment {
     UserService userService;
     @BindView(R.id.pie_chart)
     PieChart pieChart;
+    //todo  add toolbar,tvTitle
+    @BindView(R.id.toolbar_menu)
+    Toolbar toolbar;
+    @BindView(R.id.tv_tb_title)
+    TextView tvTitle;
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_recite, container, false);
-        ButterKnife.bind(this,view);
+        ButterKnife.bind(this, view);
         userService = new UserService(getContext());
+        setToolBar();
+        tvTitle.setText("Study");
         initView();
         return view;
     }
 
 
-    @OnClick({R.id.btn_start,R.id.btn_review})
-    public void start(View v){
+    @OnClick({R.id.btn_start, R.id.btn_review})
+    public void start(View v) {
         Intent intent = null;
         switch (v.getId()) {
             case R.id.btn_review:
@@ -73,8 +88,9 @@ public class ReciteFragment extends android.support.v4.app.Fragment {
                 intent = new Intent(getActivity(), DetailActivity.class);
                 break;
         }
-        startActivityForResult(intent,1);
+        startActivityForResult(intent, 1);
     }
+
     @Override
     public void onResume() {
         super.onResume();
@@ -88,10 +104,10 @@ public class ReciteFragment extends android.support.v4.app.Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(resultCode == Const.RECITE_FLAG || resultCode == Const.REVIEW_FLAG) {
+        if (resultCode == Const.RECITE_FLAG || resultCode == Const.REVIEW_FLAG) {
             User user = userService.currentUser();
             notifyUnReviewWord(String.format("还剩%s个单词没有复习！！！"
-                    ,String.valueOf(user.getRcindex()-user.getRvindex())));
+                    , String.valueOf(user.getRcindex() - user.getRvindex())));
             initView();
         }
     }
@@ -117,7 +133,7 @@ public class ReciteFragment extends android.support.v4.app.Fragment {
                     .setAutoCancel(true)
                     .build();
         }
-        notificationManager.notify(111,notification);
+        notificationManager.notify(111, notification);
 
     }
 
@@ -128,20 +144,20 @@ public class ReciteFragment extends android.support.v4.app.Fragment {
         User user = userService.currentUser();
         long rvCnt = user.getRvindex();
         long rcCnt = user.getRcindex();
-        float review =   100.0f* rvCnt / total;
-        float unReview = 100.0f* (rcCnt - rvCnt) / total;
-        float newWord =  100.0f* (total - rcCnt) / total;
+        float review = 100.0f * rvCnt / total;
+        float unReview = 100.0f * (rcCnt - rvCnt) / total;
+        float newWord = 100.0f * (total - rcCnt) / total;
 
-        Log.i(TAG, "getPieChartData: "+review+":u"+unReview+":n"+newWord);
-        pieList.add(new PieEntry(review,"已复习"));
-        pieList.add(new PieEntry(unReview,"未复习"));
-        pieList.add(new PieEntry(newWord,"未学习"));
+        Log.i(TAG, "getPieChartData: " + review + ":u" + unReview + ":n" + newWord);
+        pieList.add(new PieEntry(review, "已复习"));
+        pieList.add(new PieEntry(unReview, "未复习"));
+        pieList.add(new PieEntry(newWord, "未学习"));
 
 
-        PieDataSet dataSet = new PieDataSet(pieList,"Label");
+        PieDataSet dataSet = new PieDataSet(pieList, "Label");
 
         // 设置颜色list，让不同的块显示不同颜色，下面是我觉得不错的颜色集合，比较亮
-        String []colorStr = {"#00FF00","#0000FF","#FFA500"};
+        String[] colorStr = {"#00FF00", "#0000FF", "#FFA500"};
         for (String s : colorStr) {
             dataSet.addColor(Color.parseColor(s));
         }
@@ -185,7 +201,7 @@ public class ReciteFragment extends android.support.v4.app.Fragment {
         pieChart.setDrawEntryLabels(true);
         //是否绘制PieChart内部中心文本
         pieChart.setDrawCenterText(true);
-        pieChart.setCenterText("已经背过了"+rcCnt+"个单词");
+        pieChart.setCenterText("已经背过了" + rcCnt + "个单词");
         // 绘制内容value，设置字体颜色大小
         pieData.setDrawValues(true);
         pieData.setValueFormatter(new PercentFormatter());
@@ -197,4 +213,54 @@ public class ReciteFragment extends android.support.v4.app.Fragment {
         // 更新 piechart 视图
         pieChart.postInvalidate();
     }
+
+    /**
+     * TODO 添加 toolbar 重新布局 测试一
+     *  设置toolbar
+     */
+    private void setToolBar() {
+
+        toolbar.setNavigationIcon(R.mipmap.ic_drawer_home);
+        toolbar.setTitle("");
+        tvTitle.setText("Search");
+        toolbar.setTitleTextColor(getResources().getColor(android.R.color.white));
+
+        toolbar.inflateMenu(R.menu.zhihu_toolbar_menu); // 关联 mmenu 菜单
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                int menuItemId = item.getItemId();
+                if (menuItemId == R.id.action_search) {
+                    // TODO  跳转到 search 界面
+                    // Toast.makeText(ToolBarActivity.this, R.string.menu_search, Toast.LENGTH_SHORT).show();
+
+                } else if (menuItemId == R.id.action_settings) {
+                    //  TODO  goto Settings
+                    // Toast.makeText(ToolBarActivity.this, R.string.item_01, Toast.LENGTH_SHORT).show();
+                    gotoBaseSettings();
+                } else if (menuItemId == R.id.action_about) {
+                    // TODO  goto About Activity
+                    //  Toast.makeText(ToolBarActivity.this, R.string.item_02, Toast.LENGTH_SHORT).show();
+                    gotoAbout();
+                }
+                return true;
+            }
+        });
+    }
+
+    /**
+     *  页面跳转， 前往 About页面
+     */
+    public void gotoAbout() {
+        Intent intent;
+        intent = new Intent(getActivity(), AboutActivity.class);
+        startActivity(intent);
+    }
+    public void gotoBaseSettings() {
+        Intent intent;
+        intent = new Intent(getActivity(), BaseSettingActivity.class);
+        startActivity(intent);
+    }
+
+
 }

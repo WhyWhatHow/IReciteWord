@@ -14,13 +14,14 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="60dp"
             android:scaleType="fitXY"
             android:src="@drawable/dict" />
 
 
         <LinearLayout
             style="@style/base_linearLayout"
+            android:gravity="center"
             android:layout_below="@id/imageView">
 
             <EditText
