@@ -57,7 +57,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_detail);
         initData();
-        if(mWordList == null) {
+        if (mWordList == null) {
             return;
         }
         initViews();
@@ -128,7 +128,7 @@ public class DetailActivity extends AppCompatActivity implements View.OnClickLis
         if (mIsPlaying) {
             mTimer.cancel();
         }
-        setResult(Const.RECITE_FLAG,null);
+        setResult(Const.RECITE_FLAG, null);
     }
 
     private void initViews() {

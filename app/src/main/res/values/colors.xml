@@ -25,5 +25,7 @@
     <color name="color_512da8">#512da8</color>
     <color name="color_cd3e3a">#cd3e3a</color>
     <color name="main_orange">#FF6633</color>
-
+    <color name="success">#67C23A</color>
+    <color name="failed">#F56C6C</color>
+    <color name="normal">#EBEEF5</color>
 </resources>

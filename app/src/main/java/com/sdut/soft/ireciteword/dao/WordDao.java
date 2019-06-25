@@ -107,6 +107,7 @@ public class WordDao {
 
     /**
      * 获取干扰项
+     *
      * @param metaKey
      * @param main
      * @return
@@ -152,7 +153,7 @@ public class WordDao {
         SQLiteDatabase db = mDBOpenHelper.getDatabase();
         long size = user.getRcindex() - user.getRvindex();
         size = size >= 0 ? size : 0;
-        size = size <user.getPerday() ? size : user.getPerday();
+        size = size < user.getPerday() ? size : user.getPerday();
         Cursor cursor = db.rawQuery(sql, new String[]{String.valueOf(size), String.valueOf(user.getRvindex())});
         if (cursor.moveToFirst()) {
             words = new ArrayList<>(cursor.getCount());
@@ -174,6 +175,7 @@ public class WordDao {
 
     /**
      * 根据词汇表和单词id获得单词
+     *
      * @param metaKey
      * @param wid
      * @return
