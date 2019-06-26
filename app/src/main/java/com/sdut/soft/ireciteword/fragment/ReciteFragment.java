@@ -157,7 +157,7 @@ public class ReciteFragment extends android.support.v4.app.Fragment {
         PieDataSet dataSet = new PieDataSet(pieList, "Label");
 
         // 设置颜色list，让不同的块显示不同颜色，下面是我觉得不错的颜色集合，比较亮
-        String[] colorStr = {"#00FF00", "#0000FF", "#FFA500"};
+        String[] colorStr = {"#00FF00",  "#0000FF", "#FFA500"};
         for (String s : colorStr) {
             dataSet.addColor(Color.parseColor(s));
         }

@@ -16,7 +16,7 @@
             android:layout_centerHorizontal="true"
             android:layout_marginTop="60dp"
             android:scaleType="fitXY"
-            android:src="@drawable/dict" />
+            android:src="@drawable/dictmain" />
 
 
         <LinearLayout

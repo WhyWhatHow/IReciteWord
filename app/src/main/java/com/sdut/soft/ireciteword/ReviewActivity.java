@@ -1,6 +1,7 @@
 package com.sdut.soft.ireciteword;
 
 import android.content.DialogInterface;
+import android.os.Handler;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -107,19 +108,18 @@ public class ReviewActivity extends AppCompatActivity {
     }
 
     @OnClick(value = {R.id.btn_c0, R.id.btn_c1, R.id.btn_c2, R.id.btn_c3})
-    public void choose(View v) {
+    public void choose(final View v) {
         Integer choose = list.indexOf(v.getId());
 
-        int result = service.choose(choose);
+        final int result = service.choose(choose);
         //TODO timeLine question
         if (result == 1) {
             v.setBackgroundColor(colorSuccess);
-            Toast.makeText(ReviewActivity.this,"You are right!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(ReviewActivity.this, "You are right!", Toast.LENGTH_SHORT).show();
         } else {
             v.setBackgroundColor(colorFailed);
-            Toast.makeText(ReviewActivity.this,"Sorry, you are wrong!",Toast.LENGTH_SHORT).show();
+            Toast.makeText(ReviewActivity.this, "Sorry, you are wrong!", Toast.LENGTH_SHORT).show();
         }
-
         v.setBackgroundColor(colorNormal);
         int cnt = service.getCnt();
         setOptions();
