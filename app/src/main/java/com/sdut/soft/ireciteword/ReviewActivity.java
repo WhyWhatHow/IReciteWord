@@ -65,6 +65,7 @@ public class ReviewActivity extends AppCompatActivity {
 
     private void setOptions() {
         WordOptions options = service.getNext();
+        // judge review  finish ?
         if (null == options) {
             new AlertDialog.Builder(this)
                     .setTitle("下一步")

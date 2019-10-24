@@ -6,42 +6,31 @@
     android:layout_height="match_parent"
     >
 
+<!--  anyway , it's time to delete this shit design .-->
+    <!--<android.support.v7.widget.Toolbar-->
+        <!--android:id="@+id/toolbar_menu"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:background="@color/color_main_blue"-->
+        <!--android:theme="@style/Theme.ToolBar.ZhiHu">-->
 
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar_menu"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@color/color_main_blue"
-        android:theme="@style/Theme.ToolBar.ZhiHu">
+        <!--<TextView android:layout_width="wrap_content"-->
+            <!--android:id="@+id/tv_tb_title"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_centerInParent="true"-->
+            <!--android:layout_gravity="center"-->
+            <!--android:textColor="@android:color/white"-->
+            <!--android:textSize="20sp"-->
+            <!--android:textStyle="bold" />-->
 
-        <TextView android:layout_width="wrap_content"
-            android:id="@+id/tv_tb_title"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:layout_gravity="center"
-            android:textColor="@android:color/white"
-            android:textSize="20sp"
-            android:textStyle="bold" />
-
-    </android.support.v7.widget.Toolbar>
-
+    <!--</android.support.v7.widget.Toolbar>-->
+<!-- this is a line -->
     <com.github.mikephil.charting.charts.PieChart
         android:id="@+id/pie_chart"
         android:layout_width="400dp"
         android:layout_height="400dp"
-        android:layout_below="@id/toolbar_menu"
         android:layout_gravity="center" />
 
-    <TextView
-        android:id="@+id/tv_last"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/pie_chart"
-        android:layout_marginTop="5dp"
-        android:gravity="center_horizontal"
-        android:text="还剩个单词没有复习！！！"
-        android:textColor="@color/vob_green"
-        android:textSize="20sp" />
 
     <LinearLayout
         android:id="@+id/linearLayout"

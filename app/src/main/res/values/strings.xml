@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">爱背单词</string>
+    <string name="app_name">IWord</string>
     <string name="password">*</string>
     <string name="translate_hint">请输入要翻译的单词或句子</string>
     <string name="translate_title">翻译结果</string>
@@ -92,5 +92,6 @@
     <string name="title_home">Home</string>
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
+    <string name="title_activity_ici_ba_detail">ICiBaDetailActivity</string>
     <!-- toolbar dmo string done -->
 </resources>

@@ -97,13 +97,13 @@
         android:text="@string/str_author"
         android:textSize="26sp" />
 
-    <TextView
-        android:id="@+id/author_1"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="5dp"
-        android:text="@string/str_w_email"
-        android:textSize="24sp" />
+    <!--<TextView-->
+        <!--android:id="@+id/author_1"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:layout_margin="5dp"-->
+        <!--android:text="@string/str_w_email"-->
+        <!--android:textSize="24sp" />-->
 
     <TextView
         android:id="@+id/author_2"
