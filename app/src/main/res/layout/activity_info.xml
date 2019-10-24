@@ -42,7 +42,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autoLink="web"
-        android:text="     https://github.com/WJLGH/IReciteWord"
+        android:text="     https://github.com/whywhathow/IReciteWord"
         android:textSize="20sp" />
 
     <android.support.constraint.Guideline

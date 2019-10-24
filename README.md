@@ -5,10 +5,10 @@
     - WJLGH  [email](1179315470@qq.com)
     - whywhathow [email](1246389103@qq.com)
 
-
-
 ---
 
+MainActivity :
+  sharepreferences
 
 
 ## 英语单词系统（序号2）

@@ -93,7 +93,7 @@ public class ReciteFragment extends android.support.v4.app.Fragment {
     private void initView() {
         MenuActivity activity = (MenuActivity) getActivity();
 //        activity.setTitle("Study");
-//        showPieChart(pieChart);
+        showPieChart(pieChart);
     }
 
     @Override
