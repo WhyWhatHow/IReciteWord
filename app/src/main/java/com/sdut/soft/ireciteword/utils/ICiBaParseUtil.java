@@ -9,12 +9,9 @@ import com.google.gson.Gson;
 import com.sdut.soft.ireciteword.ContextHolder;
 import com.sdut.soft.ireciteword.MyApplication;
 import com.sdut.soft.ireciteword.bean.ICiBaC2EBean;
-
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserFactory;
-
 import java.io.StringReader;
-
 
 import static android.content.Context.MODE_PRIVATE;
 
@@ -103,6 +100,8 @@ public class ICiBaParseUtil {
             exampleText = exampleText.substring(1, exampleText.length());
             Application application = (Application) Class.forName("android.app.ActivityThread").getMethod("currentApplication").invoke(null, (Object[]) null);
             Context mcontext = application.getApplicationContext();
+//            Context mcontext = ContextHolder.getContext();
+
             //创建SharedPreferences.Editor对象，指定文件名为
             SharedPreferences sp = mcontext.getSharedPreferences("JinshanEnglishToChinese", MODE_PRIVATE);
             SharedPreferences.Editor editor = sp.edit();
@@ -247,7 +246,6 @@ public class ICiBaParseUtil {
      * 每日一句，解析json数据方法。
      */
     public static String parseJinshanEverydayEnglishJSONWithGson(String result) {
-
         return result;
     }
 

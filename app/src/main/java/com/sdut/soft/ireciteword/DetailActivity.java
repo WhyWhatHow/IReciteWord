@@ -33,7 +33,9 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
+/***
+ *  study the word
+ */
 public class DetailActivity extends AppCompatActivity implements View.OnClickListener, ViewPager.OnPageChangeListener, DetailFragment.onSpeechListener {
     private static final int MSG_REFRESH = 0x1;
     private int mLevel = 0;// 2, 1, 0, -1, -2    // 分别代表极慢、稍慢、普通、稍快、极快。

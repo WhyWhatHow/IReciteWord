@@ -18,20 +18,18 @@ public class WordOptions {
     Integer rigthIndex;
     Word target;
     public WordOptions(Context context,String meta,Word target) {
-        this.target = target;
+        this.target = target;// 正确单词
         wordDao = new WordDao(context);
-        list = wordDao.getOptionsFromUnit(meta,target);
-        rigthIndex = new Random().nextInt(list.size());
-        list.add(rigthIndex,target);
+        list = wordDao.getOptionsFromUnit(meta,target);// 干扰项
+        rigthIndex = new Random().nextInt(list.size());// 正确项地址
+        list.add(rigthIndex,target);// 添加
     }
     public boolean isRight(Integer index) {
         return index == rigthIndex;
     }
-
-    public String wordMark() {
+    public String wordMark() { // word hint
         return Math.random() > 0.5 ? target.getTrans():String.format("[%s]",target.getPhono());
     }
-
     public List<Word> getOptions() {
         return list;
     }
